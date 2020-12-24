@@ -1,0 +1,39 @@
+.card-section{
+    background: #fff;
+    margin: 0 0 1rem;
+    border-radius:0.4rem;
+    &__content{
+        padding: 1rem;
+        &--image{
+            background-color: #ededed;
+            width: 100%;
+        }
+        &--details{
+            &__name{
+                color: #465394;
+                margin-bottom: 0.5rem;
+            }
+            &__mission{
+                margin-bottom: 0.5rem;
+                &__list_item{
+                    color: #a4a4ce;
+                }
+            }
+            &__year,&__launch{
+                color: #a4a4ce;
+                &-bold{
+                    font-weight: 700;
+                    color: #000;
+                }
+                
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 700px){
+    .card-section{
+        max-width: 16rem;
+    }
+}

@@ -1,0 +1,36 @@
+.filter-section{
+    background-color: #fff;
+    border-radius:0.4rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    &__launch-year{
+        margin-bottom: 1rem;
+        &--content{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            &_button{
+                width: 50%;
+            }
+        }
+        &--type{
+            margin: 0 2rem 0.5rem;
+            text-align: center;
+            border-bottom: 1px solid;
+        }
+    }
+
+    &__successful-launch,&__successful-landing{
+        margin-bottom: 1rem;
+        &--content{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        &--type{
+            margin: 0 2rem 0.5rem;
+            text-align: center;
+            border-bottom: 1px solid;
+        }
+    }
+}

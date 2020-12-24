@@ -1,0 +1,30 @@
+<div class="filter-section">
+    <h4>Filters</h4>
+    <div class="filter-section__launch-year">
+        <p class="filter-section__launch-year--type">Launch Year</p>
+        <div class="filter-section__launch-year--content" >
+            <div class="filter-section__launch-year--content_button" *ngFor="let year of filterYearList">
+                <app-button [buttonName]="year" [buttonClass]="'year-button'"></app-button>
+            </div>
+
+        </div>
+    </div>
+    <div class="filter-section__successful-launch">
+        <p class="filter-section__successful-launch--type">Successful Launch</p>
+        <div class="filter-section__successful-launch--content">
+            <div class="filter-section__successful-launch--content_button" *ngFor="let item of booleanList">
+                <app-button [buttonName]="item" [buttonClass]="'year-button'"></app-button>
+            </div>
+        </div>
+   
+    </div>
+    <div class="filter-section__successful-landing">
+        <p class="filter-section__successful-landing--type">Successful Landing</p>
+        <div class="filter-section__successful-landing--content">
+            <div class="filter-section__successful-landing--content_button" *ngFor="let item of booleanList">
+                <app-button [buttonName]="item" [buttonClass]="'year-button'"></app-button>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="card-list-section">
+    <div class="card-list-section__content" *ngIf="spaceCardList.length">
+        <div class="card-list-section__content--list" *ngFor="let item of spaceCardList">
+            <card [spaceCard]="item"></card>
+        </div>
+    </div>
+ 
+</div>

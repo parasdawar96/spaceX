@@ -1,0 +1,18 @@
+button{
+    background-color: #C5E09B;
+    padding: .4rem;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    margin: 0.3rem 0.1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    &:hover,:focus{
+        background-color: #7CBA01;
+        outline: none;
+    }
+}
+
+
+.year-button{
+       
+}

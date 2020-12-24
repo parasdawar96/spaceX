@@ -1,0 +1,36 @@
+.card-list-section{
+    &__content{
+    }
+}
+
+
+
+@media only screen and (min-width: 700px)and (max-width: 1023px){
+    .card-list-section{
+        &__content{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 19rem);
+            justify-content: space-between;
+        }
+        }
+}
+
+@media only screen and (min-width: 1024px){
+    .card-list-section{
+        &__content{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 12.5rem);
+            justify-content: space-between;
+        }
+        }
+}
+
+@media only screen and (min-width: 1200px){
+    .card-list-section{
+        &__content{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 14.5rem);
+            justify-content: space-between;
+        }
+        }
+}
