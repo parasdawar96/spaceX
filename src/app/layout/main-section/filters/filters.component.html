@@ -1,11 +1,22 @@
 <div class="filter-section">
-    <h4>Filters</h4>
+    <h5>Filters</h5>
     <div class="filter-section__launch-year">
         <p class="filter-section__launch-year--type">Launch Year</p>
-        <div class="filter-section__launch-year--content" >
-            <div class="filter-section__launch-year--content_button" *ngFor="let year of filterYearList">
-                <app-button [buttonName]="year" [buttonClass]="'year-button'"></app-button>
-            </div>
+        <div class="filter-section__launch-year--content"
+            *ngFor="let year of filterYearList; let i = index; let even = even">
+
+            <span *ngIf="even">
+                <div class="filter-section__launch-year--content-element">
+                    <app-button (onClick)="applyFilter('launch_year',filterYearList[i])" [buttonName]="filterYearList[i]" [buttonClass]="'year-button'"></app-button>
+                    <app-button (onClick)="applyFilter('launch_year',filterYearList[i+1])" *ngIf="i+1<=filterYearList.length-1 ;else hideblock " [buttonName]="filterYearList[i+1]"
+                        [buttonClass]="'year-button'"></app-button>
+                    <ng-template #hideblock>
+                        <app-button [buttonName]="'xxxx'" [buttonClass]="'hide-button'"></app-button>
+                    </ng-template>
+                </div>
+            </span>
+
+
 
         </div>
     </div>
@@ -13,18 +24,18 @@
         <p class="filter-section__successful-launch--type">Successful Launch</p>
         <div class="filter-section__successful-launch--content">
             <div class="filter-section__successful-launch--content_button" *ngFor="let item of booleanList">
-                <app-button [buttonName]="item" [buttonClass]="'year-button'"></app-button>
+                <app-button (onClick)="applyFilter('launch_success',item)" [buttonName]="item" [buttonClass]="'launch-button'"></app-button>
             </div>
         </div>
-   
+
     </div>
     <div class="filter-section__successful-landing">
         <p class="filter-section__successful-landing--type">Successful Landing</p>
         <div class="filter-section__successful-landing--content">
             <div class="filter-section__successful-landing--content_button" *ngFor="let item of booleanList">
-                <app-button [buttonName]="item" [buttonClass]="'year-button'"></app-button>
+                <app-button (onClick)="applyFilter('land_success',item)" [buttonName]="item" [buttonClass]="'landing-button'"></app-button>
             </div>
         </div>
-        
+
     </div>
 </div>

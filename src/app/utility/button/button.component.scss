@@ -1,18 +1,37 @@
 button{
     background-color: #C5E09B;
-    padding: .4rem;
+    cursor: pointer;
+    padding: .5rem 0.8rem;
     border: 1px solid #dedede;
     border-radius: 8px;
-    margin: 0.3rem 0.1rem;
+    margin: 0.6rem;
     font-size: 0.9rem;
     cursor: pointer;
-    &:hover,:focus{
+   
+}
+
+.hide-button{
+    visibility: hidden;
+}
+
+
+.landing-button{
+    &:hover,&:focus{
         background-color: #7CBA01;
         outline: none;
     }
 }
 
-
 .year-button{
-       
+    &:hover,&:focus{
+        background-color: #7CBA01;
+        outline: none;
+    }
+}
+
+.launch-button{
+    &:hover,&:focus{
+        background-color: #7CBA01;
+        outline: none;
+    }
 }

@@ -4,8 +4,8 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
 
-import * as fetch from 'node-fetch';
-import cors from 'cors';
+
+
 
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
@@ -14,6 +14,7 @@ import { existsSync } from 'fs';
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
+  console.log(process.cwd());
   const distFolder = join(process.cwd(), 'dist/spaceX/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
@@ -33,7 +34,6 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Universal engine
-  server.use(cors());
 
 //   server.get('/v3/launches', (req, res) => {
 //     const host = "https://api.spacexdata.com";

@@ -2,28 +2,44 @@
     background: #fff;
     margin: 0 0 1rem;
     border-radius:0.4rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    font-size: 0.9rem;
+    &:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
     &__content{
         padding: 1rem;
         &--image{
             background-color: #ededed;
             width: 100%;
+            margin-bottom: 0.5rem;
+            object-fit: contain;
+            min-width: 100%;
+            min-height: 200px;
         }
         &--details{
             &__name{
                 color: #465394;
                 margin-bottom: 0.5rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             &__mission{
                 margin-bottom: 0.5rem;
+                min-height: 4rem;
                 &__list_item{
                     color: #a4a4ce;
                 }
             }
-            &__year,&__launch{
+            &__year,&__launch,&__landing{
                 color: #a4a4ce;
+                margin-bottom: 0.5rem;
                 &-bold{
                     font-weight: 700;
                     color: #000;
+                    margin-right: 0.5rem;
                 }
                 
             }
@@ -32,8 +48,32 @@
 }
 
 
-@media only screen and (min-width: 700px){
-    .card-section{
-        max-width: 16rem;
-    }
-}
+// @media only screen and (min-width: 768px){
+//     .card-section{
+//         width: 20rem;
+//     }
+//     .card-section__content--details__mission{
+//         min-height: 4rem;
+//     }
+// }
+
+// @media only screen and (min-width: 1024px){
+//     .card-section{
+//         width: 12rem;
+//     }
+// }
+// @media only screen and (min-width: 1128px){
+//     .card-section{
+//         width: 12.5rem;
+//     }
+// }
+// @media only screen and (min-width: 1200px){
+//     .card-section{
+//         width: 14.5rem;
+//     }
+// }
+// @media only screen and (min-width: 1400px){
+//     .card-section{
+//         width: 15rem;
+//     }
+// }

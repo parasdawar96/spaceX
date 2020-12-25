@@ -11,6 +11,7 @@ import { CardComponent } from './layout/main-section/card/card.component';
 import { FiltersComponent } from './layout/main-section/filters/filters.component';
 import { ButtonComponent } from './utility/button/button.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoaderComponent } from './utility/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     CardListComponent,
     CardComponent,
     FiltersComponent,
-    ButtonComponent
+    ButtonComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

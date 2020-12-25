@@ -1,3 +1,26 @@
 .main-section{
-    min-height: 90vh;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    &__content{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 700px){
+    .main-section{
+        &__content{
+            flex-direction: row;
+            &--filters{
+                width: 20%;
+                margin-right: 1rem;
+            }
+            &--cardlist{
+                width: 80%;
+            }
+        }
+    }
 }
