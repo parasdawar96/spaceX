@@ -22,16 +22,9 @@ button{
     }
 }
 
-.year-button{
-    &:hover,&:focus{
-        background-color: #7CBA01;
-        outline: none;
-    }
-}
 
-.launch-button{
-    &:hover,&:focus{
+    .selected_button{
         background-color: #7CBA01;
         outline: none;
     }
-}
+

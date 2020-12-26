@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class StateService {
 
     protected _spaceCardList: Array<object>;
     protected _isLoading: boolean;
 
+
     public spaceCardListObs$: BehaviorSubject<Array<object>>;
     public isLoadingObs$: BehaviorSubject<boolean>;
+
 
     constructor() {
         this.initialize();
@@ -18,7 +20,8 @@ export class StateService {
 
     initialize() {
         this._spaceCardList = [];
-        this._isLoading=false;
+        this._isLoading = false;
+
 
         this.spaceCardListObs$ = new BehaviorSubject<Array<object>>(this._spaceCardList);
         this.isLoadingObs$ = new BehaviorSubject<boolean>(this._isLoading);
