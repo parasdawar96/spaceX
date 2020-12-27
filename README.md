@@ -23,4 +23,6 @@ App is created using Angular Universal(server side rendering) which in turn uses
 Used typescript,flexbox,css-grid and scss.
 
 ## Lighthouse Results
-The code is optimised for SEO, Accessibility and Performance.
+The code is optimised for Performance, Accessibility,Best Practices and SEO. Result as follows:
+
+![lighthouse_result](https://user-images.githubusercontent.com/53849950/103172941-5dfe7080-487d-11eb-8d81-ab1c2f9a5a25.PNG)
