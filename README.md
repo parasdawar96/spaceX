@@ -1,27 +1,28 @@
 # SpaceX
+A web application which helps users browse all launches by SpaceX. Built using mobile first design approach.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+## App Url
+Visit https://space-x-details.herokuapp.com/
 
-## Development server
+## Development Details
+Used Infinite scroll pagination to load more spaceX details.\
+Selected filters are upated to the app URL which in turn preserve the filters state on page reload.\
+Created re-usable components for Ui elements too like button and loader component.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Assumptions made
+I have taken response limit as 30 since have incorporated Infinite scroll for more api calls.\
+Successful Landing property was not clear in the json so have used rocket.first_stage.cores[0].landing_intent to map.\
+Updated the filters state to the app url since it was not clear as in which url we have to update the filters api or app.
 
-## Code scaffolding
+## Issues faced
+Tablet view was starting from 700px hence didn't used bootstrap.\
+To handle and keep a check for many client side features like document(query Selector), sessionStorage, window etc are not present in server side.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Stack details
+App is created using Angular Universal(server side rendering) which in turn uses express server.\
+Used typescript,flexbox,css-grid and scss.
 
-## Build
+## Lighthouse Results
+The code is optimised for Performance, Accessibility,Best Practices and SEO. Result as follows:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![lighthouse_result](https://user-images.githubusercontent.com/53849950/103172941-5dfe7080-487d-11eb-8d81-ab1c2f9a5a25.PNG)
