@@ -25,13 +25,13 @@ export class FiltersComponent implements OnInit {
         this.finalQueryParam = "";
         this.previousSelectedObj = {};
         this.activatedRoute.queryParamMap.subscribe((res: any) => {
-            if (this.isNotEmptyObject(res.params)) {
+           // if (this.isNotEmptyObject(res.params)) {
                 this.finalQueryParam = this.setQueryParam(res.params);
-                if(this.isBrowser){
-                    sessionStorage.setItem('query', this.finalQueryParam);
-                }
+                // if(this.isBrowser){
+                //     sessionStorage.setItem('query', this.finalQueryParam);
+                // }
                 this.apiService.getSpaceXCards(this.finalQueryParam);
-            }
+           // }
 
         });
     }
@@ -100,8 +100,8 @@ export class FiltersComponent implements OnInit {
     }
 
 
-    isNotEmptyObject(obj) {
-        return Object.keys(obj).length != 0 && obj.constructor === Object;
-    }
+    // isNotEmptyObject(obj) {
+    //     return Object.keys(obj).length != 0 && obj.constructor === Object;
+    // }
 
 }
