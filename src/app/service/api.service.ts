@@ -9,7 +9,7 @@ export class ApiService {
     constructor(private stateService: StateService) { }
 
     async getSpaceXCards(queryParam) {
-        let url = `https://api.spacexdata.com/v3/launches?limit=${this.stateService.responseLimitState}&${queryParam}`;
+        let url = `/api?limit=${this.stateService.responseLimitState}&${queryParam}`;
         this.stateService.isLoadingState = true;
         const res = await fetch(url);
         const data = await res.json();
