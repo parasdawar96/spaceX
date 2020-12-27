@@ -15,7 +15,7 @@ Successful Landing property was not clear in the json so have used rocket.first_
 Updated the filters state to the app url since it was not clear as in which url we have to update the filters api or app.
 
 ## Issues faced
-Tablet view was starting from 700x hence didn't used bootstrap.\
+Tablet view was starting from 700px hence didn't used bootstrap.\
 To handle and keep a check for many client side features like document(query Selector), sessionStorage, window etc are not present in server side.
 
 ## Stack details
