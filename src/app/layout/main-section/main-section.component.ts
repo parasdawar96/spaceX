@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/service/api.service';
 import { StateService } from 'src/app/service/state.service';
 
 @Component({
@@ -7,14 +8,15 @@ import { StateService } from 'src/app/service/state.service';
   styleUrls: ['./main-section.component.scss']
 })
 export class MainSectionComponent implements OnInit {
-    spaceCardList: Array<any>;
-  constructor(private stateService: StateService) { }
+    isLoading:boolean;
+  constructor(private apiService:ApiService,private stateService: StateService,private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.stateService.spaceCardListObs$.subscribe(data => {
-        this.spaceCardList = data;
-    });
+   
+  }
 
+  onScroll() {
+    this.apiService.loadMore();
   }
 
 }

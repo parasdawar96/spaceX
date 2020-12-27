@@ -1,14 +1,18 @@
 <div class="card-list-section">
-    <div style="width: inherit;min-height:90vh;position: relative;" [hidden]="!isLoading">
-        <loader></loader>
-    </div>
-    <div class="card-list-section__content" *ngIf="spaceCardList.length && !isLoading">
+
+
+
+
+        
+
+    <div class="card-list-section__content">
         <div class="card-list-section__content--list" *ngFor="let item of spaceCardList">
             <card [spaceCard]="item"></card>
         </div>
     </div>
+
     <div class="card-list-section__content" *ngIf="!spaceCardList.length && !isLoading">
         No Matching Content!
     </div>
- 
+
 </div>

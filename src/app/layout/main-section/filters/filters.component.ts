@@ -3,6 +3,7 @@ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { StateService } from 'src/app/service/state.service';
+import { skip } from 'rxjs/operators';
 
 @Component({
     selector: 'filters',
@@ -15,7 +16,7 @@ export class FiltersComponent implements OnInit {
     finalQueryParam: string;
     previousSelectedObj: any;
     isBrowser:boolean;
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private apiService: ApiService,@Inject(PLATFORM_ID) platformId: Object) {
+    constructor(private activatedRoute: ActivatedRoute, private router: Router,private stateService:StateService, private apiService: ApiService,@Inject(PLATFORM_ID) platformId: Object) {
         this.isBrowser = isPlatformBrowser(platformId);
      }
 
@@ -24,20 +25,15 @@ export class FiltersComponent implements OnInit {
         this.booleanList = [true, false];
         this.finalQueryParam = "";
         this.previousSelectedObj = {};
-        this.activatedRoute.queryParamMap.subscribe((res: any) => {
-           // if (this.isNotEmptyObject(res.params)) {
+        this.activatedRoute.queryParamMap.pipe(skip(1)).subscribe((res: any) => {
                 this.finalQueryParam = this.setQueryParam(res.params);
-                // if(this.isBrowser){
-                //     sessionStorage.setItem('query', this.finalQueryParam);
-                // }
+                this.stateService.finalQueryParamState=this.finalQueryParam;
+                this.stateService.responseLimitState=30;
                 this.apiService.getSpaceXCards(this.finalQueryParam);
-           // }
-
         });
     }
 
     applyFilter(type, value) {
-        //this.updateSelectedButton(type,value);
         this.router.navigate(
             [],
             {
@@ -52,19 +48,18 @@ export class FiltersComponent implements OnInit {
     }
 
     updateSelectedButton(type, value) {
-        if (this.previousSelectedObj[type]) {
+        if (this.previousSelectedObj[type] && value!=this.previousSelectedObj[type]) {
             let selectedElement: HTMLElement = this.fetchElement(type, "-" + this.previousSelectedObj[type]);
             this.removeSelectedClass(selectedElement);
         }
         let elementToSelect: HTMLElement = this.fetchElement(type, '-' + value);
         this.addSelectedClass(elementToSelect);
-
         this.previousSelectedObj[type] = "" + value;
     }
 
     addSelectedClass(elementToSelect) {
         setTimeout(() => {
-            if(elementToSelect){
+            if(elementToSelect && !elementToSelect.classList.contains("selected_button")){
                 elementToSelect.classList.add("selected_button");
             }
         }, 0);
@@ -98,10 +93,4 @@ export class FiltersComponent implements OnInit {
         }
         return queryParam;
     }
-
-
-    // isNotEmptyObject(obj) {
-    //     return Object.keys(obj).length != 0 && obj.constructor === Object;
-    // }
-
 }

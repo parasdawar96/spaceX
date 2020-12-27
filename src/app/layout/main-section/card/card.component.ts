@@ -11,9 +11,4 @@ export class CardComponent implements OnInit {
 
     ngOnInit(): void {
     }
-    ngOnChanges(changes) {
-        if(changes.spaceCard){
-           var a=changes.spaceCard;
-        }
-      }
 }

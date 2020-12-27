@@ -1,5 +1,5 @@
-<section class="main-section">
-    
+<section class="main-section" infiniteScroll
+[infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false">
     <div class="main-section__content" >
         <div class="main-section__content--filters">
             <filters></filters>
