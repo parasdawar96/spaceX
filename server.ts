@@ -4,9 +4,6 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
 
-
-
-
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
@@ -34,16 +31,6 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Universal engine
-
-//   server.get('/v3/launches', (req, res) => {
-//     const host = "https://api.spacexdata.com";
-//     const url = host + req.originalUrl;
-//     console.log(url);
-//     fetch(url)
-//     .then(resp => resp.json())
-//     .then(json => res.send(json))
-//     .catch(err=>console.log(err));
-//   });
 
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
