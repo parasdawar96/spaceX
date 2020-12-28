@@ -22,3 +22,10 @@ Used typescript,flexbox,css-grid and scss.
 The code is optimised for Performance, Accessibility,Best Practices and SEO. Result as follows:
 
 ![lighthouse_result](https://user-images.githubusercontent.com/53849950/103172941-5dfe7080-487d-11eb-8d81-ab1c2f9a5a25.PNG)
+
+## App ScreenShots
+![mob_view](https://user-images.githubusercontent.com/53849950/103231199-44ccf100-495d-11eb-8610-84cd2b60e281.PNG)
+
+![tablet_view](https://user-images.githubusercontent.com/53849950/103231204-472f4b00-495d-11eb-80f9-2583d6715343.PNG)
+
+![desktop_view](https://user-images.githubusercontent.com/53849950/103231210-4991a500-495d-11eb-8ba1-98e0a326506d.PNG)
