@@ -6,9 +6,9 @@ Visit https://space-x-details.herokuapp.com/
 
 ## Development Details
 Used Infinite scroll pagination to load more spaceX details.\
-Selected filters are upated to the app URL which in turn preserve the filters state on page reload.\
+Selected filters are updated to the app URL which in turn preserve the filters state on page reload.\
 Image Lazy Loading.\
-Created re-usable components for Ui elements too like button and loader component.
+Created re-usable components for UI elements too like button and loader component.
 
 ## Assumptions made
 I have taken response limit as 30 since have incorporated Infinite scroll for more api calls.\
