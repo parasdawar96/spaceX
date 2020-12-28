@@ -21,9 +21,15 @@ export class CardListComponent implements OnInit {
             this.spaceCardList = data;
         });
 
-        if(this.isBrowser && window.location.search==""){
+        if(typeof window !== 'undefined' && window !== null){
+            if(window.location.search==""){
+                this.apiService.getSpaceXCards("");
+            } 
+        }
+        else{
             this.apiService.getSpaceXCards("");
         }
+
     }
 
 }

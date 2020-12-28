@@ -25,6 +25,7 @@
     "@angular/platform-server": "~10.0.6",
     "@angular/router": "~10.0.6",
     "@nguniversal/express-engine": "^10.0.2",
+    "axios": "^0.21.1",
     "express": "^4.15.2",
     "ngx-infinite-scroll": "^10.0.1",
     "node-fetch": "^2.6.1",

@@ -25,7 +25,7 @@ export function app(): express.Express {
 
     // Example Express Rest API endpoints
     server.get('/api', (req, res) => {
-
+        console.log("reached");
         const {
             limit=30,
             launch_year = "",
@@ -38,7 +38,12 @@ export function app(): express.Express {
         fetch(apiEndPoint)
         .then((res) => res.json())
         .then((json) => {
-            res.send(json);
+            console.log("API RESPONSE");
+            if (req.headers["content-type"] !== "application/json") {
+                res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: json }] });
+              } else {
+                res.send(json);
+              }
  
         })
         .catch(() => {
