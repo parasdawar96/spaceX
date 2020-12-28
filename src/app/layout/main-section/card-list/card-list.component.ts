@@ -1,5 +1,7 @@
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { StateService } from 'src/app/service/state.service';
 import { ApiService } from '../../../service/api.service';
 
@@ -12,7 +14,7 @@ export class CardListComponent implements OnInit {
     spaceCardList: Array<any>;
     isLoading: boolean;
     isBrowser: boolean;
-    constructor(private stateService: StateService,private apiService: ApiService,@Inject(PLATFORM_ID) platformId: Object) {
+    constructor(private stateService: StateService,private apiService: ApiService, @Inject(PLATFORM_ID) private platformId: Object) {
         this.isBrowser= isPlatformBrowser(platformId);
      }
 
@@ -21,15 +23,9 @@ export class CardListComponent implements OnInit {
             this.spaceCardList = data;
         });
 
-        if(typeof window !== 'undefined' && window !== null){
-            if(window.location.search==""){
-                this.apiService.getSpaceXCards("");
-            } 
-        }
-        else{
+        if(isPlatformServer(this.platformId)){
             this.apiService.getSpaceXCards("");
         }
-
     }
 
 }

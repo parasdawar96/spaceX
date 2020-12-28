@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule  } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
@@ -31,6 +31,7 @@ import { LoaderComponent } from './utility/loader/loader.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserTransferStateModule,
     AppRoutingModule,
     HttpClientModule,
     InfiniteScrollModule

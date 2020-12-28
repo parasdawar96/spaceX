@@ -19,15 +19,13 @@ export function app(): express.Express {
     server.engine('html', ngExpressEngine({
         bootstrap: AppServerModule,
     }));
-
     server.set('view engine', 'html');
     server.set('views', distFolder);
 
     // Example Express Rest API endpoints
     server.get('/api', (req, res) => {
-        console.log("reached");
         const {
-            limit=30,
+            limit = 30,
             launch_year = "",
             launch_success = "",
             land_success = ""
@@ -36,19 +34,13 @@ export function app(): express.Express {
         let apiEndPoint =
             `https://api.spacexdata.com/v3/launches?limit=${limit}&launch_year=${launch_year}&launch_success=${launch_success}&land_success=${land_success}`;
         fetch(apiEndPoint)
-        .then((res) => res.json())
-        .then((json) => {
-            console.log("API RESPONSE");
-            if (req.headers["content-type"] !== "application/json") {
-                res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: json }] });
-              } else {
+            .then((res) => res.json())
+            .then((json) => {
                 res.send(json);
-              }
- 
-        })
-        .catch(() => {
-            console.log("Something went wrong");
-        });
+            })
+            .catch(() => {
+                console.log("Something went wrong");
+            });
 
     });
     // Serve static files from /browser
@@ -60,7 +52,7 @@ export function app(): express.Express {
 
 
     server.get('*', (req, res) => {
-        res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+        res.render(indexHtml, { req, providers: [{ provide: 'serverUrl', useValue: `${req.protocol}://${req.get('host')}` }] });
     });
 
     return server;

@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import axios from 'axios';
 import { StateService } from './state.service';
 
 @Injectable({
@@ -7,22 +7,23 @@ import { StateService } from './state.service';
 })
 export class ApiService {
 
-    constructor(private stateService: StateService) { }
+    constructor(private stateService: StateService, private http: HttpClient) { }
 
     async getSpaceXCards(queryParam) {
         let url = `/api?limit=${this.stateService.responseLimitState}&${queryParam}`;
-        this.stateService.isLoadingState = true;  
-        console.log("url",url);      
-        axios.get(url)
-        .then((res)=>{
-            this.stateService.spaceCardListState = res.data;
-            this.stateService.isLoadingState = false;
-        })
-        .catch(()=>{
-            console.log("error");
-            this.stateService.isLoadingState = false;
-        })
-        
+        this.stateService.isLoadingState = true;
+        this.fetchData(url).subscribe(
+            (res: any) => {
+                this.stateService.spaceCardListState = res;
+                this.stateService.isLoadingState = false;
+            }, (err) => {
+                console.log(err);
+            }
+        );
+    }
+
+    fetchData(url) {
+        return this.http.get(url);
     }
 
     loadMore() {

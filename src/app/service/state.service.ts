@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -18,12 +20,20 @@ export class StateService {
     protected finalQueryParamObs$:BehaviorSubject<string>;
 
 
-    constructor() {
-        this.initialize();
+    constructor( private transferState: TransferState) {
+        this.initialize();        
     }
 
     initialize() {
-        this._spaceCardList = [];
+        const key = makeStateKey("cardList");
+        const storedResponse = this.transferState.get(key, null);
+        if(storedResponse){
+          
+            this._spaceCardList =storedResponse;
+        }
+        else{
+            this._spaceCardList=[];
+        }
         this._isLoading = false;
         this._responseLimit=30;
         this._finalQueryParam="";
